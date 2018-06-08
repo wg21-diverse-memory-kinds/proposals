@@ -24,12 +24,16 @@ for manipulating diverse memory kinds, such as:
 * Shared memory interprocess synchronization and communication.
 * Controlling placement and migration of memory in hierarchical non uniform memory system.
 
-To enable these use cases, we would need to evolve the C++ programming language:
+Scope
+=====
 
-* Extend the C++ memory model and abstract machine to support diverse memory kinds.
-* Enable placing and using C++ objects (including synchronization objects) in diverse memory.
-* Enable controlling and querying properties of diverse memory.
-* Provide facilities for synchronization in diverse memory.
+Our goal is to **enable C++ programmers to manipulate diverse memory kinds**.
+Thus, the scope of our work should fall into the following four categories:
+
+* **Extend the C++ memory model and abstract machine to support diverse memory kinds.**
+* **Enable placing and using C++ objects (including synchronization objects) in diverse memory.**
+* **Enable controlling and querying properties of diverse memory.**
+* **Provide facilities for synchronization in diverse memory.**
 
 Here are some concrete features that could be built in this space:
 
@@ -47,6 +51,9 @@ Some WG21 papers have been written on topics in this domain:
 * [P0796R1](https://wg21.link/P0796R1): Supporting Heterogeneous & Distributed Computing Through Affinity  
 * [P0567R0](https://wg21.link/P0567R0): Asynchronous Managed Pointer for Heterogeneous Computing
 * [P1031R0](https://wg21.link/P1031R0): Low Level File I/O Library
+
+Interest
+========
 
 The following WG21 members are interested in this subject area and are willing to spend time on it:
 
