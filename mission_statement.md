@@ -1,9 +1,22 @@
 Diverse Memory Kinds in C++
 ===========================
 
-C++ lives in a world of flat, homogeneous memory. This model has not aged
-particular. There are a number of use cases that would benefit from standard
-facilities for manipulating **diverse memory kinds**, such as:
+Modern computing systems are increasingly heterogeneous. The memory seen by a
+C++ process consists of multiple types and kinds. Some layer on top of others
+e.g. CPU cache memory on top of main memory. Some have very different access
+times e.g. NUMA and fabric and storage connected memory. Some are shared
+resources, and thus must be managed for concurrency. Some must be interruption
+safe, as they contain contents whose intact survival is particularly valuable
+to the user of the C++ process.
+
+However, the C++ standard does not have formal support for any of these
+**diverse memory kinds**. Today, C++ lives in a world of flat, homogeneous
+memory - a model has not aged particularly well and is woefully inadequate for
+platforms with hierarchal memory, interprocess communication or memory-mapped
+I/O.
+
+There are a number of use cases that would be enabled from standard facilities
+for manipulating diverse memory kinds, such as:
 
 * Memory mapped I/O.
 * Remote direct memory access.
@@ -13,10 +26,10 @@ facilities for manipulating **diverse memory kinds**, such as:
 
 To enable these use cases, we would need to evolve the C++ programming language:
 
-0.) Extend the C++ memory model and abstract machine to support diverse memory kinds.
-1.) Placing and using C++ objects (including synchronization objects) in diverse memory.
-2.) Controlling and querying properties of diverse memory.
-3.) Synchronization of diverse memory to underlying storage.
+* Extend the C++ memory model and abstract machine to support diverse memory kinds.
+* Enable placing and using C++ objects (including synchronization objects) in diverse memory.
+* Enable controlling and querying properties of diverse memory.
+* Provide facilities for synchronization in diverse memory.
 
 Here are some concrete features that could be built in this space:
 
@@ -37,5 +50,6 @@ Some WG21 papers have been written on topics in this domain:
 
 The following WG21 members are interested in this subject area and are willing to spend time on it:
 
-* Bryce Adelstein Lelbach, PL22.16, NVIDIA
+* Bryce Adelstein Lelbach
+* Niall Douglas
 
